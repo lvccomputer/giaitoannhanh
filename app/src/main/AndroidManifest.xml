@@ -22,8 +22,9 @@
         <activity android:name=".ui.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="locked">
-            <action android:name="android.intent.action.MAIN" />
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
         </activity>
         <activity android:name=".ui.PlayingActivity"
             android:screenOrientation="locked"/>

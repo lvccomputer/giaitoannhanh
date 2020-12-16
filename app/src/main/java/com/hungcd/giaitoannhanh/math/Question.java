@@ -1,16 +1,16 @@
 package com.hungcd.giaitoannhanh.math;
 
-public class Equation implements Comparable<Equation> {
+public class Question implements Comparable<Question> {
 
 	private Integer equationId;
 	private String equation;
 	private Boolean answer;
 	private Boolean correct;
 
-	public Equation() {
+	public Question() {
 	}
 
-	public Equation(Integer equationId, String equation, Boolean answer, Boolean correct) {
+	public Question(Integer equationId, String equation, Boolean answer, Boolean correct) {
 		this.equationId = equationId;
 		this.equation = equation;
 		this.answer = answer;
@@ -50,7 +50,7 @@ public class Equation implements Comparable<Equation> {
 	}
 
 	@Override
-	public int compareTo(Equation o) {
+	public int compareTo(Question o) {
 		return this.getEquationId().compareTo(o.getEquationId());
 	}
 

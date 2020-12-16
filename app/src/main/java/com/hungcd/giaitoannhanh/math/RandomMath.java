@@ -2,7 +2,7 @@ package com.hungcd.giaitoannhanh.math;
 
 import java.util.Random;
 
-public class MathLogic {
+public class RandomMath {
 	public Random random = new Random();
 	public int num1;
 	public int num2;
@@ -16,7 +16,7 @@ public class MathLogic {
 	public String operator2="-";
 	public String operator3="*";
 	
-	public MathLogic(){
+	public RandomMath(){
 		selectedAns = random.nextInt((3-0+1)+0);
 		chosenAns = random.nextInt((1-0+1)+0);
 		num1 = random.nextInt((10-1+1)+1);
