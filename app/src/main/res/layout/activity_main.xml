@@ -7,7 +7,7 @@
     android:background="#16264A"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.activities.MainActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="200dp"

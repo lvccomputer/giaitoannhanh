@@ -1,4 +1,4 @@
-package com.hungcd.giaitoannhanh.ui;
+package com.hungcd.giaitoannhanh.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -121,7 +121,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:padding="12dp"
-                android:src="@drawable/ic_play" />
+                android:src="@drawable/ic_menu" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 </LinearLayout>

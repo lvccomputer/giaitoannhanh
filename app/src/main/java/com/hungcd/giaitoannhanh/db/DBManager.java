@@ -55,7 +55,7 @@ public class DBManager {
         db.endTransaction();
     }
 
-    private ContentValues createScoreValue(long time, int score) {
+    private ContentValues createScoreValue(String time, int score) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_TIME, time);
         values.put(COLUMN_SCORE, score);
@@ -63,7 +63,7 @@ public class DBManager {
     }
 
     public long insertScore(long time, int score) {
-        return db.insert(TABLE_NAME, null, createScoreValue(time, score));
+        return db.insert(TABLE_NAME, null, createScoreValue(String.valueOf(time), score));
     }
 
     public Cursor queryBestScore() {
@@ -72,5 +72,11 @@ public class DBManager {
             return cursor;
         }
         return null;
+    }
+
+    public Cursor queryScore() {
+        Cursor cursor = db.rawQuery("select * from " + TABLE_NAME, null);
+        if (cursor != null) cursor.moveToFirst();
+        return cursor;
     }
 }

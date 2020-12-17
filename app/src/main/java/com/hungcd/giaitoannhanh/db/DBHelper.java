@@ -13,7 +13,7 @@ import static com.hungcd.giaitoannhanh.db.ScoreTable.Score.TABLE_NAME;
 
 public class DBHelper extends SQLiteOpenHelper {
     private static final String TAG = "DBHelper";
-    private static final String DATABASE_NAME = "reminder.db";
+    private static final String DATABASE_NAME = "score_v1.db";
     private static final int DATABASE_VERSION = 1;
 
     private static final String TEXT_TYPE = " TEXT";
