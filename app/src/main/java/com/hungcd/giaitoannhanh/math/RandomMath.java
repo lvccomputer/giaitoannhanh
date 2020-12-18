@@ -17,8 +17,8 @@ public class RandomMath {
 	public String operator3="*";
 	
 	public RandomMath(){
-		selectedAns = random.nextInt((3-0+1)+0);
-		chosenAns = random.nextInt((1-0+1)+0);
+		selectedAns = random.nextInt((3 + 1));
+		chosenAns = random.nextInt((1 + 1));
 		num1 = random.nextInt((10-1+1)+1);
 		num2 = random.nextInt((10-1+1)+1);
 	}

@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onFailure(Call<Login> call, Throwable t) {
                         Log.e(TAG, "onFailure: " + t.toString());
                         progressDialog.dismiss();
-                        Toast.makeText(LoginActivity.this, "User or Password is incorrect!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Server not working or Information is correct!", Toast.LENGTH_LONG).show();
                     }
                 });
             }
