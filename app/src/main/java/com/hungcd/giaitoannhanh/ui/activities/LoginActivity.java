@@ -55,23 +55,14 @@ public class LoginActivity extends AppCompatActivity {
             progressDialog.show();
             SOService soService = ApiUtils.getSOService();
             if (isUser() && isPassword()) {
-
-                Log.e(TAG, "action: " + edtUser.getText().toString() + "- " + edtPassword.getText().toString());
-                soService.post(new User(edtUser.getText().toString(), edtPassword.getText().toString())).enqueue(new Callback<Login>() {
+                soService.login(new User(edtUser.getText().toString(), edtPassword.getText().toString())).enqueue(new Callback<Login>() {
                     @Override
                     public void onResponse(Call<Login> call, Response<Login> response) {
-                        Log.e(TAG, "onResponse: " + response.toString());
-                        Log.e(TAG, "onResponse: " + response.errorBody());
                         progressDialog.dismiss();
                         if (response.isSuccessful()) {
                             UserConstant.setToken(response.body().getData().getToken());
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
-                        } else {
-                            //Error by coder api
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            finish();
-                            Toast.makeText(LoginActivity.this, "User or Password is incorrect!", Toast.LENGTH_LONG).show();
                         }
 
                     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config usesCleartextTraffic="true">
-        <domain includeSubdomains="true">68.183.234.90:8000</domain>
+        <domain includeSubdomains="true">http://68.183.234.90:8080</domain>
 
     </domain-config>
     <base-config cleartextTrafficPermitted="true"/>
