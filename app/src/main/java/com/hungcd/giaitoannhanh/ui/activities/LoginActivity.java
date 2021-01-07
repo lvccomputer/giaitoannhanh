@@ -63,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
                             UserConstant.setToken(response.body().getData().getToken());
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
+                        }else {
+                            Toast.makeText(LoginActivity.this, "Something Wrong. Try again!", Toast.LENGTH_SHORT).show();
                         }
 
                     }
