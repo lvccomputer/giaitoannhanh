@@ -1,9 +1,10 @@
-package com.hungcd.giaitoannhanh.retrofit;
+package com.hungcd.giaitoannhanh.retrofit.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Data {
+
     @SerializedName("username")
     @Expose
     private String username;

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
 
 public class UserConstant {
+
     private static SharedPreferences sharedPreferences;
 
     public static void setToken(String tk) {
@@ -14,7 +15,6 @@ public class UserConstant {
 
     public static String getToken() {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(App.getApp());
-
         return sharedPreferences.getString("_token", "");
     }
 }

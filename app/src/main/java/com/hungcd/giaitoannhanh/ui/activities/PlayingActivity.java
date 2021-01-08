@@ -26,14 +26,22 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class PlayingActivity extends AppCompatActivity {
+
     private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.ENGLISH);
+
     private static final String TAG = "PlayingActivity";
+
     private DBManager dbManager;
+
     private CountDownTimer countDownTimer;
+
     private RandomMath randomMathL;
+
     private TextView tvQuestion, tvScore, tvTimer;
+
     private ImageView imgTrue, imgFalse;
-    private int score = 0, total = 9999999;
+
+    private int score = 0;
 
     //replay init
     private LinearLayout lnAnswer, lnReplay;
@@ -68,7 +76,6 @@ public class PlayingActivity extends AppCompatActivity {
         randomMathL = new RandomMath();
         tvQuestion.setText(randomMathL.printEquation());
         countDownTimer = new CountDownTimer(3000, 1000) {
-
             @SuppressLint("SetTextI18n")
             @Override
             public void onTick(long millisUntilFinished) {
@@ -81,7 +88,6 @@ public class PlayingActivity extends AppCompatActivity {
             public void onFinish() {
                 // TODO Auto-generated method stub
                 gameOver();
-
                 if (score > 0) {
                     saveScore(dbManager, System.currentTimeMillis(), score);
                 }
@@ -102,7 +108,6 @@ public class PlayingActivity extends AppCompatActivity {
                 randomMathL = new RandomMath();
                 tvQuestion.setText(randomMathL.printEquation());
             } else {
-
                 gameOver();
                 countDownTimer.cancel();
                 if (score > 0) {

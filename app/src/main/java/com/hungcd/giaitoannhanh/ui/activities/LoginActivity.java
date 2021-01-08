@@ -15,15 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.hungcd.giaitoannhanh.R;
 import com.hungcd.giaitoannhanh.UserConstant;
 import com.hungcd.giaitoannhanh.retrofit.ApiUtils;
-import com.hungcd.giaitoannhanh.retrofit.Login;
+import com.hungcd.giaitoannhanh.retrofit.models.Login;
 import com.hungcd.giaitoannhanh.retrofit.SOService;
-import com.hungcd.giaitoannhanh.retrofit.User;
+import com.hungcd.giaitoannhanh.retrofit.models.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity  {
+
     private static final String TAG = "LoginActivity";
     private EditText edtUser, edtPassword;
     private TextView tvLogin;
@@ -36,12 +37,11 @@ public class LoginActivity extends AppCompatActivity {
         bindViews();
         initProgressDialog();
         action();
-        Log.e(TAG, "onCreate: " + UserConstant.getToken());
+
         if (UserConstant.getToken() != null && !UserConstant.getToken().equals("")) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
-
     }
 
     private void bindViews() {
@@ -52,18 +52,22 @@ public class LoginActivity extends AppCompatActivity {
 
     private void action() {
         tvLogin.setOnClickListener(v -> {
+
             progressDialog.show();
             SOService soService = ApiUtils.getSOService();
             if (isUser() && isPassword()) {
                 soService.login(new User(edtUser.getText().toString(), edtPassword.getText().toString())).enqueue(new Callback<Login>() {
                     @Override
                     public void onResponse(Call<Login> call, Response<Login> response) {
+                        Log.e(TAG, "onResponse: "+response.toString());
                         progressDialog.dismiss();
                         if (response.isSuccessful()) {
+                            Log.e(TAG, "onResponse: "+response.body().getMessage());
+                            Log.e(TAG, "onResponse: "+response.body().getData().getToken());
                             UserConstant.setToken(response.body().getData().getToken());
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
-                        }else {
+                        } else {
                             Toast.makeText(LoginActivity.this, "Something Wrong. Try again!", Toast.LENGTH_SHORT).show();
                         }
 

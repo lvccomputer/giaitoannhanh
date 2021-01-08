@@ -11,6 +11,7 @@ import static com.hungcd.giaitoannhanh.db.ScoreTable.Score.COLUMN_TIME;
 import static com.hungcd.giaitoannhanh.db.ScoreTable.Score.TABLE_NAME;
 
 public class DBManager {
+
     private static final String TAG = "DBManager";
     //TODO add SQLiteException
     private Context context;
@@ -67,7 +68,9 @@ public class DBManager {
     }
 
     public Cursor queryBestScore() {
-        Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, COLUMN_SCORE, null);
+        String select = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + ScoreTable.Score._ID + " ASC";
+        Cursor cursor = db.rawQuery(select, null);
+
         if (cursor != null && cursor.moveToFirst()) {
             return cursor;
         }
